@@ -98,7 +98,7 @@ In this task, you will convert a classic pipeline into a YAML pipeline
 
 1.  From the web browser displaying the Azure DevOps portal with the **Configuring Agent Pools and Understanding Pipeline Styles** project open, in the vertical navigational pane on the left side, click **Pipelines**. 
 1.  On the **Recent** tab of the **Pipelines** pane, hover with the mouse pointer over the right edge of the entry containing the **PartsUnlimitedE2E** entry to reveal the vertical ellipsis symbol designating the **More** menu, click the ellipsis symbol, and, in the dropdown menu, click **Edit**. This will display the build pipeline that is part of the project you generated at the beginning of the lab. 
-1.  On the **Tasks** tab of the **PartsUnlimitedE2E** edit pane, click **Triggers**, on the right side of the **PartsUnlimited** pane, uncheck the **Enable continuous integration** checkbox, click the down-facing caret next to the **Save & queue** button, in the dropdown menu, click **Save**, and in the **Save build pipeline** click **Save**.
+1.  On the **Tasks** tab of the **PartsUnlimitedE2E** edit pane, click **Triggers** tab, on the right side of the **PartsUnlimited** pane, uncheck the **Enable continuous integration** checkbox, click the down-facing caret next to the **Save & queue** button, in the dropdown menu, click **Save**, and in the **Save build pipeline** click **Save**.
 
     > **Note**: This will prevent from unintended execution of automatic build due to changes to the repository during this lab.
 
@@ -125,7 +125,7 @@ In this task, you will convert a classic pipeline into a YAML pipeline
 
     > **Note**: For more information regarding this functionality, refer to [Replacing "View YAML"](https://devblogs.microsoft.com/devops/replacing-view-yaml/)
 
-1.  On the lab computer, start Visual Studio Code and use it to open the file **PartsUnlimitedE2E.yml**. The file should have the following content:
+1.  On the lab computer, Select the file which you have downloaded and Select **open with Visual Studio Code** and the file **PartsUnlimitedE2E.yml**. The file should have the following content:
 
     ```yaml
     name: $(date:yyyyMMdd)$(rev:.r)
@@ -223,8 +223,8 @@ In this task, you will configure the LOD VM as an Azure DevOps self-hosting agen
     cd \
     mkdir agent ; cd agent
     $TARGET = Get-ChildItem "$Home\Downloads\vsts-agent-win-x64-*.zip"
-    Add-Type -AssemblyName System.IO.Compression.FileSystem
-    [System.IO.Compression.ZipFile]::ExtractToDirectory($TARGET, "$PWD")
+    Add-Type -AssemblyName System.IO.Compression.FileSystem ; 
+    [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-2.196.2.zip", "$PWD")
     ```
 
 1.  In the same **Administrator: Windows PowerShell** console, run the following to configure the agent:
